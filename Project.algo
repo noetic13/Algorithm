@@ -1,0 +1,45 @@
+ALGORITHM algorithm_name
+VAR
+len:INTEGER:=0;
+NumWords:INTEGER:=1;
+NumVowels:INTEGER:=0;
+ch:CHAR:="";
+str:STRING:="";
+BEGIN
+
+//Reading the sentence
+
+    REPEAT
+        ch:=Read("type a character");
+        str=ch + " ";
+    UNTIL (str[length(str)]==".")
+
+// determining how many words there are in the sentence
+
+    FOR i FROM 1 TO length(str) DO
+        IF (str[i]==" ") THEN
+            NumWords:=NumWords+1;
+        END_IF
+    END_FOR
+    
+// determining how many vowels there are in the sentence
+
+    FOR i FROM 1 TO length(ch) DO
+        IF (str[i]={'a', 'e' , 'o' , 'i' ,'u'}) THEN
+            NumVowels:= NumVowels+1;
+    END_FOR
+
+// the number of characters in the sentence 
+
+    FOR i FROM 1 TO length(str) DO
+        IF ( str[i] <> " ") THEN
+            len:= len+1;
+        END_IF
+    END_FOR
+
+
+    Write (str);
+    Write (len);
+    Write (NumWords);
+    Write (NumVowels);
+END
